@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>@todo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div id="container">
+  <div class="right">
+    <h1>Cruciverba: trova la parola nascosta</h1>
+    <h2>Orizzontali</h2>
+    <p>1. Ormone dell’accudimento insieme all’ossitocina</p>
+    <p>3. La più antica Istituzione</p>
+    <p>4. Progetto europeo sulla paternità attiva</p>
+    <p>7. Capacità percepita dai genitori di riuscire ad allattare al seno</p>
+    <p>10. Può essere paterno/materno/genitoriale</p>
+    <p>11. Corso di Accompagnamento alla Nascita (acronimo)</p>
+    <p>14. Azione raccomandata dal OMS in modo esclusivo per i primi 6 mesi del bambino</p>
+    <p>15. Vengono condivise tra padre e madre dopo la nascita del bambino</p>
+
+    <h2>Verticali</h2>
+    <p>1. Insieme alla madre si prende cura dei bisogni del neonato</p>
+    <p>2. Lo sono Padre-Madre-Bambino</p>
+    <p>4. Agevola l’attacco al seno subito dopo il parto, ma può farlo anche il papà appoggiando il bambino sul petto</p>
+    <p>5. L’allattamento è …, gratuito, sempre pronto, sostenibile</p>
+    <p>6. Dedicarsi con cura</p>
+    <p>8. Si usa per portare il bambino in stretto contatto</p>
+    <p>9. Lo cercano mamma e papà appena nasce il bambino</p>
+    <p>12. Permette ai genitori lavoratori di rimanere a casa per prendersi cura del bambino</p>
+    <p>13. Lo sono i bambini nel tempo a venire</p>
+
+    <p style="text-align: right">
+      <button>Controlla</button>
+    </p>
+  </div>
+  <div id="crosswords-container"></div>
+</div>
+<script src="./crosswords.js"></script>
+<script>
+  const words = [
+    {
+      startingPosition: {
+        x: 0,
+        y: 4,
+      },
+      direction: 'horizontal',
+      answer: 'Prolattina',
+      index: 1,
+    },
+    {
+      startingPosition: {
+        x: 0,
+        y: 4,
+      },
+      direction: 'vertical',
+      answer: 'Padre',
+      index: 1,
+    },
+    {
+      startingPosition: {
+        x: 0,
+        y: 9,
+      },
+      direction: 'vertical',
+      answer: 'Triade',
+      index: 2,
+    },
+    {
+      startingPosition: {
+        x: 2,
+        y: 6,
+      },
+      direction: 'horizontal',
+      answer: 'Famiglia',
+      index: 3,
+    },
+    {
+      startingPosition: {
+        x: 4,
+        y: 1,
+      },
+      direction: 'horizontal',
+      answer: 'Parent',
+    },
+    {
+      startingPosition: {
+        x: 5,
+        y: 5,
+      },
+      direction: 'horizontal',
+      answer: 'Autoefficacia',
+      index: 7,
+    },
+    {
+      startingPosition: {
+        x: 4,
+        y: 5,
+      },
+      direction: 'vertical',
+      answer: 'Naturale',
+      index: 5,
+    },
+    {
+      startingPosition: {
+        x: 5,
+        y: 10,
+      },
+      direction: 'vertical',
+      answer: 'Fascia',
+      index: 8,
+    },
+    {
+      startingPosition: {
+        x: 4,
+        y: 13,
+      },
+      direction: 'vertical',
+      answer: 'Accudire',
+      index: 6,
+    },
+    {
+      startingPosition: {
+        x: 5,
+        y: 15,
+      },
+      direction: 'vertical',
+      answer: 'Contatto',
+      index: 9,
+    },
+    {
+      startingPosition: {
+        x: 4,
+        y: 1,
+      },
+      direction: 'vertical',
+      answer: 'PelleAPelle',
+      index: 4,
+    },
+    {
+      startingPosition: {
+        x: 7,
+        y: 4,
+      },
+      direction: 'horizontal',
+      answer: 'Ruolo',
+      index: 10,
+    },
+    {
+      startingPosition: {
+        x: 9,
+        y: 4,
+      },
+      direction: 'horizontal',
+      answer: 'Can',
+      index: 11,
+    },
+    {
+      startingPosition: {
+        x: 11,
+        y: 4,
+      },
+      direction: 'horizontal',
+      answer: 'Fe',
+      index: 13,
+    },
+    {
+      startingPosition: {
+        x: 11,
+        y: 4,
+      },
+      direction: 'vertical',
+      answer: 'Futuro',
+      index: 13,
+    },
+    {
+      startingPosition: {
+        x: 13,
+        y: 0,
+      },
+      direction: 'horizontal',
+      answer: 'AllattareAlSeno',
+      index: 14,
+    },
+    {
+      startingPosition: {
+        x: 9,
+        y: 8,
+      },
+      direction: 'vertical',
+      answer: 'Congedo',
+      index: 12,
+    },
+    {
+      startingPosition: {
+        x: 15,
+        y: 4,
+      },
+      direction: 'horizontal',
+      answer: 'Responsabilità',
+      index: 15,
+    },
+  ];
+  const answer = [
+    {
+      x: 0,
+      y: 4,
+    },
+    {
+      x: 2,
+      y: 13,
+    },
+    {
+      x: 4,
+      y: 6,
+      line: 'bottom',
+    },
+    {
+      x: 8,
+      y: 5,
+    },
+    {
+      x: 9,
+      y: 13,
+    },
+    {
+      x: 13,
+      y: 4,
+    },
+    {
+      x: 15,
+      y: 17,
+    },
+    {
+      x: 11,
+      y: 4,
+      line: 'right',
+    },
+  ];
+  const {table, check} = createCrosswordsPuzzle(words, answer);
+  document.getElementById('crosswords-container').append(table);
+  document.getElementsByTagName('button').item(0).onclick = check;
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+#container {
+  width: 1500px;
+  height: 799px;
+  background-image: url("./background.jpeg");
+  padding: 50px;
+}
+
+td {
+  width: 30px;
+  height: 30px;
+}
+
+td:not(:empty) {
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+}
+
+td.error {
+  border-color: red;
+  position: relative;
+}
+
+input {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 25px;
+  border-width: 0;
+  background-color: transparent;
+}
+
+span {
+  position: absolute;
+  font-size: 10px;
+}
+
+.right {
+  float: right;
+  max-width: 500px;
+}
+
+.right p {
+  font-size: 15px;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+h2 {
+  font-size: 15px;
+}
+
+button {
+  padding: 10px;
+  background-color: white;
+  border-color: green;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.answer {
+  background-color: #C7675C;
+}
+
+.answer-bottom {
+  border-bottom-style: solid;
+  border-bottom-width: 5px;
+  border-bottom-color: #FE2600 !important;
+}
+
+.answer-right {
+  border-right-style: solid;
+  border-right-width: 5px;
+  border-right-color: #FE2600 !important;
+}
